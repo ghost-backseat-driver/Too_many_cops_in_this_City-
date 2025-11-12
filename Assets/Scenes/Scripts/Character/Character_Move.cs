@@ -56,7 +56,7 @@ public class Character_Move : MonoBehaviour
         {
             //이동 방향으로 캐릭터 회전
             Quaternion rotation = Quaternion.LookRotation(lastDir);
-            core.rb.MoveRotation(Quaternion.Slerp(core.rb.rotation, rotation, 10.0f * Time.fixedDeltaTime));
+            core.rb.MoveRotation(Quaternion.Slerp(core.rb.rotation, rotation, 5.0f * Time.fixedDeltaTime));
         }
 
         //애니메이션 속도값 갱신
