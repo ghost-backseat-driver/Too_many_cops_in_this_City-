@@ -4,10 +4,11 @@ using UnityEngine;
 
 //에너미, 머니 스포너 따로 하려고 했는데,
 //어차피 랜덤위치 스폰되는거 같으니까, 공용으로 쓸 수 있게 만들자
-public class Object_Spawner : MonoBehaviour
+//했다가 개같이 멸망-모노비하이비어 를 참조? 말이되는 발상이었냐..ㅠㅠ
+public class Money_Spawner : MonoBehaviour
 {
-    [Header("스폰할 프리팹")] //공용으로 쓰고 있으니까, 그냥 각 객체의 비하이비어를 참조하게 하자.
-    [SerializeField] private MonoBehaviour spawnPrefab;
+    [Header("스폰할 머니 프리팹")]
+    [SerializeField] private MoneyTrigger moneyPrefab;
 
     [Header("초기 풀 생성 개수")]
     [SerializeField] private int startPoolCount = 10;
@@ -26,7 +27,7 @@ public class Object_Spawner : MonoBehaviour
     private void Start()
     {
         //초기 생성 개수 만큼 지정 프리팹 생성
-        GameManager.Pool.CreatePool(spawnPrefab, startPoolCount);
+        GameManager.Pool.CreatePool(moneyPrefab, startPoolCount);
 
         //인보크로 SpawnPrefab 무한반복, 1초후 실행, 이후 지정 스폰 간격으로 실행 
         InvokeRepeating(nameof(SpawnPrefab), 1.0f, spawnInterval);
@@ -42,7 +43,7 @@ public class Object_Spawner : MonoBehaviour
         Vector3 spawnPos = new Vector3(Random.Range(minPos.x, maxPos.x),0.0f,Random.Range(minPos.z, maxPos.z));
 
         //풀에서 가져오고(없으면 생성, 있으면 재사용)
-        MonoBehaviour obj = GameManager.Pool.GetFromPool(spawnPrefab);
+        MonoBehaviour obj = GameManager.Pool.GetFromPool(moneyPrefab);
 
         //위치 정해주고
         obj.transform.position = spawnPos;
@@ -50,5 +51,11 @@ public class Object_Spawner : MonoBehaviour
         obj.gameObject.SetActive(true);
 
         curCount++; //일단 임시로 맥스치 제한 두긴 했는데, 이걸 충돌했을때 줄여줘야해. 콜백써야되나?
+    }
+
+    //외부 충돌 트리거시 curCount감소 함수
+    public void DecreaseCount()
+    {
+        curCount--;
     }
 }

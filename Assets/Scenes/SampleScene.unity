@@ -1101,6 +1101,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1107534420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1107534422}
+  - component: {fileID: 1107534423}
+  m_Layer: 0
+  m_Name: Money_Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1107534422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107534420}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.1493993}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1107534423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107534420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6c69bf3b03f2ee4b8d68020f5566e93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyPrefab: {fileID: 2373328150583071975, guid: fb78ea3af0f5f73489edb8a8eb9ef242,
+    type: 3}
+  startPoolCount: 10
+  spawnInterval: 2
+  minPos: {x: -10, y: 0, z: -10}
+  maxPos: {x: 10, y: 0, z: 10}
 --- !u!1 &1468972726
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,7 +1191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1571509859}
-  - component: {fileID: 1571509858}
+  - component: {fileID: 1571509860}
   m_Layer: 0
   m_Name: Cop_Spawner
   m_TagString: Untagged
@@ -1149,24 +1199,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1571509858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1571509857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6c69bf3b03f2ee4b8d68020f5566e93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPrefab: {fileID: 2026562415523479775, guid: e785a11a19233214fbce2814bc37f570,
-    type: 3}
-  startPoolCount: 10
-  spawnInterval: 2
-  minPos: {x: 0, y: 0, z: 0}
-  maxPos: {x: 50, y: 0, z: 50}
 --- !u!4 &1571509859
 Transform:
   m_ObjectHideFlags: 0
@@ -1182,6 +1214,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1571509860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571509857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f887f227bb1775e4c89f4b4216b35116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  copPrefab: {fileID: 7966145890094326733, guid: e785a11a19233214fbce2814bc37f570,
+    type: 3}
+  startPoolCount: 10
+  spawnInterval: 2
+  minPos: {x: -30, y: 0, z: -30}
+  maxPos: {x: 30, y: 0, z: 30}
 --- !u!1 &1617629032
 GameObject:
   m_ObjectHideFlags: 3
@@ -1599,3 +1649,4 @@ SceneRoots:
   - {fileID: 54000773}
   - {fileID: 1876285660}
   - {fileID: 1571509859}
+  - {fileID: 1107534422}

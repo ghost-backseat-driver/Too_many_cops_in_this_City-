@@ -63,6 +63,7 @@ public class ObjectPool<T> where T : MonoBehaviour
         instance.gameObject.SetActive(false); //집어넣을거 비활성화
         instance.transform.SetParent(Root);
         pool.Enqueue(instance); //비활성화 한 것 넣기
+        Debug.Log(instance.gameObject.name);
     }
 
     //Root 파괴로 풀 자체가 무너져버렸을때 대비용
