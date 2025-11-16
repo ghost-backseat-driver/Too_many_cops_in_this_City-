@@ -9,7 +9,7 @@ public class MoneyUI : MonoBehaviour
     public static MoneyUI Instance;
 
     //머니 누적용
-    public int moneyCount;
+    public int moneyCount = 0;
     //머니 갯수 표시용
     public TMP_Text moneyCountText;
 
@@ -37,11 +37,8 @@ public class MoneyUI : MonoBehaviour
     public void stealedMoney()
     {
         //돈 뺏길때 일단 임시
-        if (moneyCount > 0)
-        {
-            moneyCount--;
-            UpdateMoneyUI();
-        }
+        moneyCount--;
+        UpdateMoneyUI();
     }
 
     //UI에 표시

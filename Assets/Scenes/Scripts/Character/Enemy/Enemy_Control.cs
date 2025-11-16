@@ -47,7 +47,12 @@ public class Enemy_Control : MonoBehaviour
 
             //충돌 FX 추가 할 것
 
-            //머니카운트 토탈 카운트 나눠서, 토탈카운트 0이하때 충돌시 게임오버 조건 넣을것
+            //머니카운트 토탈 카운트 나눠서, 토탈카운트 0미만때 충돌시 게임오버 조건 넣을것
+            if (MoneyUI.Instance.moneyCount < 0)
+            {
+                Debug.Log("게임오버");
+                GameOver_UI.Instance.ShowGameOver();
+            }
         }
     }
 }
