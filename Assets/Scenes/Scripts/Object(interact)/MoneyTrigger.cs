@@ -22,9 +22,11 @@ public class MoneyTrigger : MonoBehaviour
             GameManager.Pool.ReturnPool(this);
             //스포너에 현재 스폰수 감소 알려주기
             spawner.DecreaseCount();
+            //UI에 추가
+            MoneyUI.Instance.AddMoney();
+            //획득 사운드 추가 할 것
 
-            Debug.Log("감소확인");
-            //여기에 나중에 머니 UI쪽 갯수 증가 하는거 추가할것 
+            //획득 FX 추가 할 것
         }
     }
 }
