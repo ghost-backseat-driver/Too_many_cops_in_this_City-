@@ -52,6 +52,10 @@ public class Enemy_Control : MonoBehaviour
             {
                 Debug.Log("°ÔÀÓ¿À¹ö");
                 GameOver_UI.Instance.ShowGameOver();
+                //SoundManager.Instance.PlayEffect("Á×´Â ¼Ò¸®")
+                
+                //BGM ¸ØÃçÁÖ°í
+                SoundManager.Instance.StopBGM();
             }
         }
     }
