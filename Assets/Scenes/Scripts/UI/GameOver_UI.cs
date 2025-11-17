@@ -45,7 +45,10 @@ public class GameOver_UI : MonoBehaviour
     private void RestartGame()
     {
         Time.timeScale = 1.0f;
-        Debug.Log("클릭완료");
+
+        //버튼 효과음
+        SoundManager.Instance.PlayEffect("buttonPress_SFX");
+
         SceneManager.LoadScene("SampleScene");
     }
 }

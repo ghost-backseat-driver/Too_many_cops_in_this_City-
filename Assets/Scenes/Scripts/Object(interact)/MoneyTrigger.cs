@@ -25,7 +25,7 @@ public class MoneyTrigger : MonoBehaviour
             //UI¿¡ Ãß°¡
             MoneyUI.Instance.AddMoney();
             //È¹µæ »ç¿îµå Ãß°¡ ÇÒ °Í
-            //SoundManager.Instance.PlayEffect("Ä³¼Å ¼Ò¸®")
+            SoundManager.Instance.PlayEffect("getcash_SFX");
             
             //È¹µæ FX Ãß°¡ ÇÒ °Í
         }

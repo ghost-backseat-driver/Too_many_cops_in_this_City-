@@ -44,16 +44,20 @@ public class Enemy_Control : MonoBehaviour
             //UI에 추가
             MoneyUI.Instance.stealedMoney();
             //충돌 사운드 추가할것
-
-            //충돌 FX 추가 할 것
+            SoundManager.Instance.PlayEffect("hurt_SFX");
 
             //머니카운트 토탈 카운트 나눠서, 토탈카운트 0미만때 충돌시 게임오버 조건 넣을것
             if (MoneyUI.Instance.moneyCount < 0)
             {
                 Debug.Log("게임오버");
                 GameOver_UI.Instance.ShowGameOver();
-                //SoundManager.Instance.PlayEffect("죽는 소리")
                 
+                //죽는소리
+                SoundManager.Instance.PlayEffect("Death_SFX");
+
+                //죽는 알림음
+                SoundManager.Instance.PlayEffect("DeathAlert_SFX");
+
                 //BGM 멈춰주고
                 SoundManager.Instance.StopBGM();
             }

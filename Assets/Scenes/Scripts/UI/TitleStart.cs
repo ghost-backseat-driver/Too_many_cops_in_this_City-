@@ -21,7 +21,7 @@ public class TitleStart : MonoBehaviour
     private void Start()
     {
         //BGM 멈춘 상태로 시작
-        //SoundManager.Instance.StopBGM();
+        SoundManager.Instance.StopBGM();
 
         startButton.onClick.AddListener(GameStart);
         //여기에 플레이어 움직임 멈추고
@@ -35,8 +35,10 @@ public class TitleStart : MonoBehaviour
     private void GameStart()
     {
         //BGM 재생
-        //SoundManager.Instance.PlayBGM();
-        
+        SoundManager.Instance.PlayBGM("mapleBadGuys-BGM");
+
+        //버튼 효과음
+        SoundManager.Instance.PlayEffect("buttonPress_SFX");
         //여기에서 플레이어 움직임 풀어주고,
         playerObject.canMove = true;
         //비활성화 할거

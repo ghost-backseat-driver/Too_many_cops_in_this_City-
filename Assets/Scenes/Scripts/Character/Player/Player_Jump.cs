@@ -21,7 +21,7 @@ public class Player_Jump : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
 
     //땅 체크 플래그
-    private bool isGround = false;
+    public bool isGround = false;
 
     //점프 입력 키 지정
     private KeyCode jumpKey = KeyCode.Space;
@@ -70,6 +70,9 @@ public class Player_Jump : MonoBehaviour
 
         //위로 포스모드 임펄스
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+        //점프 사운드
+        SoundManager.Instance.PlayEffect("jumpWoo_SFX");
     }
 
     //레이 확인용 드로우기즈모

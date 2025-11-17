@@ -37,6 +37,10 @@ public class GameClear_UI : MonoBehaviour
 
     public void ShowGameClear()
     {
+        //bgm멈추고
+        SoundManager.Instance.StopBGM();
+        //게임 클리어 효과음
+        SoundManager.Instance.PlayEffect("Escape_SFX");
         GameClear_Panel.SetActive(true);
         Time.timeScale = 0.0f;
     }
@@ -44,7 +48,9 @@ public class GameClear_UI : MonoBehaviour
     private void QuitGame()
     {
         Time.timeScale = 1.0f;
-        Debug.Log("클릭완료");
+        //버튼 효과음
+        SoundManager.Instance.PlayEffect("buttonPress_SFX");
+
         Application.Quit();
     }
 }

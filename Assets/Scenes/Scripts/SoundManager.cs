@@ -4,12 +4,6 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
-public enum SoundType
-{
-    BGM,
-    EFFECT,
-}
-
 public class SoundManager : Singleton<SoundManager>
 {
     [Header("사용할 오디오클립 불러오기")]
@@ -17,8 +11,8 @@ public class SoundManager : Singleton<SoundManager>
 
     private Dictionary<string, AudioClip> audioClipsDic; //이름으로 오디오 클립 찾기위한 dic
 
-    private AudioSource bgmSource; //BGM 재생용
-    private AudioSource effectSource; // EFFECT 재생용
+    [SerializeField] private AudioSource bgmSource; //BGM 재생용
+    [SerializeField] private AudioSource effectSource; // EFFECT 재생용
 
     protected override void Awake()
     {
@@ -69,7 +63,7 @@ public class SoundManager : Singleton<SoundManager>
     {
         if (!audioClipsDic.TryGetValue(clipName, out var clip))
         {
-            //이펙트 사운드 못찾았을때 대비용 일단 냅둬
+            //이펙트 사운드 못찾았을때
             Debug.LogWarning($"Effect {clipName} not found!");
             return;
         }
@@ -83,7 +77,7 @@ public class SoundManager : Singleton<SoundManager>
         switch (scene.name)
         {
             case "SampleScene":
-                PlayBGM("SceneBGM");
+                PlayBGM("mapleBadGuys-BGM");
                 break;
             default:
                 StopBGM();

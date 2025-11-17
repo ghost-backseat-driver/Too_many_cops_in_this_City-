@@ -29,6 +29,8 @@ public class EscapeTry_UI : MonoBehaviour
     public void ShowTryFailed()
     {
         escapeTry_Panel.SetActive(true);
+        //트라이 실패 효과음
+        SoundManager.Instance.PlayEffect("TryFailed_SFX");
     }
     public void HideTryFailled()
     {
