@@ -38,6 +38,12 @@ public class Character_Move : MonoBehaviour
     //이동로직-공용-
     private void Move()
     {
+        //캔무브 false상태면 움직임 봉쇄
+        if (!canMove)
+        {
+            core.rb.velocity = Vector3.zero;
+            return;
+        }
         //canMove = true; //다시 풀어줄 용도 필요한거 인지
         Vector3 velocity = inputDir * moveSpeed;
 
@@ -52,12 +58,5 @@ public class Character_Move : MonoBehaviour
             Quaternion CharacterRotation = Quaternion.LookRotation(inputDir);
             core.rb.MoveRotation(Quaternion.Slerp(core.rb.rotation, CharacterRotation, 5.0f * Time.fixedDeltaTime));
         }
-    }
-
-    public void Stop()
-    {
-        //canMove = false; 일단 넣어놓고 후에 수정
-        core.rb.velocity = Vector3.zero;
-        SetDir(Vector3.zero);
     }
 }

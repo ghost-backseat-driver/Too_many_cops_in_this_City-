@@ -25,6 +25,13 @@ public class Player_Control : MonoBehaviour
     //이동 입력 처리 함수++카메라 기준(카메라 꼭 붙어있어야함)
     private void moveInput()
     {
+        //캔무브 false 상태면 입력값 무시
+        if (!move.canMove)
+        {
+            move.SetDir(Vector3.zero);
+            return;
+        }
+
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
