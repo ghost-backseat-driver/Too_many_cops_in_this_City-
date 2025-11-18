@@ -12,6 +12,9 @@ public class GameClear_UI : MonoBehaviour
     [SerializeField] private GameObject GameClear_Panel;
     [SerializeField] private Button GameQuit_Button;
 
+    [Header("게임 재시작 버튼")]
+    [SerializeField] private Button Restert_Button;
+
     private void Awake()
     {
         if (Instance == null)
@@ -28,11 +31,13 @@ public class GameClear_UI : MonoBehaviour
     {
         GameClear_Panel.SetActive(false);
         GameQuit_Button.onClick.AddListener(QuitGame);
+        Restert_Button.onClick.AddListener(RestartGame);
     }
 
     private void OnDestroy()
     {
         GameQuit_Button.onClick.RemoveListener(QuitGame);
+        Restert_Button.onClick.RemoveListener(RestartGame);
     }
 
     public void ShowGameClear()
@@ -52,5 +57,14 @@ public class GameClear_UI : MonoBehaviour
         SoundManager.Instance.PlayEffect("buttonPress_SFX");
 
         Application.Quit();
+    }
+    private void RestartGame()
+    {
+        Time.timeScale = 1.0f;
+
+        //버튼 효과음
+        SoundManager.Instance.PlayEffect("buttonPress_SFX");
+
+        SceneManager.LoadScene("SampleScene");
     }
 }
